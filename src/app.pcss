@@ -1,0 +1,71 @@
+/* Write your global styles here, in PostCSS syntax */
+
+@tailwind base;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+    :root {
+        --primary-50: 237 247 250;
+        --primary-100: 220 239 245;
+        --primary-200: 172 212 230;
+        --primary-300: 129 186 214;
+        --primary-400: 56 134 186;
+        --primary-500: 0 83 156;
+        --primary-600: 0 70 140;
+        --primary-700: 0 55 117;
+        --primary-800: 0 41 94;
+        --primary-900: 0 26 69;
+        --primary-950: 0 16 46;
+    }
+
+    :root[class~="dark"] {
+        --primary-50: 255 253 250;
+        --primary-100: 252 248 240;
+        --primary-200: 250 237 220;
+        --primary-300: 247 225 200;
+        --primary-400: 242 197 162;
+        --primary-500: 238 164 127;
+        --primary-600: 238 164 127;
+        --primary-700: 179 104 71;
+        --primary-800: 143 72 46;
+        --primary-900: 107 46 26;
+        --primary-950: 69 23 10;
+    }
+}
+
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.card {
+    padding: 2em;
+}
+
+#app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+@tailwind components;
+
+@tailwind utilities;
