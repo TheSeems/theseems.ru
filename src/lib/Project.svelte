@@ -10,7 +10,7 @@
 <div class="card">
     <h5 class="text-2xl font-bold tracking-tight text-black dark:text-white">
         {#if url != null}
-            <A href={url} aClass="inline-flex items-center font-medium">
+            <A href={url} target="_blank" rel="noreferrer noopener" aClass="inline-flex items-center font-medium">
                 {title}
                 <LinkIcon class="p-0.5 m-0.5 h-5 w-5"/>
             </A>

@@ -19,7 +19,7 @@
         <NavbarItem url="/">Home</NavbarItem>
         <NavbarItem url="/projects">Projects</NavbarItem>
         <NavLi>
-            <a href="//theseems.ru/cv" target="_blank">
+            <a href="//theseems.ru/cv" target="_blank" rel="noreferrer noopener">
                 <Button>
                     CV
                     <CvIcon class="p-0.5 ml-0.5 h-5 w-5"/>

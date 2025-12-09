@@ -13,30 +13,29 @@
     </div>
     <div class="py-10 w-full md:w-1/2 mx-auto">
         <p class="text-black text-lg dark:text-white">
-            My name is Alexey Akhundov.
-            I am a Software Engineer at
-            <A href="//ya.ru" aClass="inline-flex items-center font-medium">
+            My name is Alexey Akhundov. I am a Software Engineer at
+            <A href="//ya.ru" target="_blank" rel="noreferrer noopener" aClass="inline-flex items-center font-medium">
                 Yandex <LinkIcon class="p-0.5 m-0.5 h-5 w-5"/>
             </A>
-            and also a student at
-            <A href="//cs.hse.ru/en" aClass="inline-flex items-center font-medium">
+            and a student at
+            <A href="//cs.hse.ru/en" target="_blank" rel="noreferrer noopener" aClass="inline-flex items-center font-medium">
                 HSE, Faculty of Computer Science <LinkIcon class="p-0.5 m-0.5 h-5 w-5"/>
-            </A>
+            </A>.
         </p>
         <p class="text-black dark:text-white font-light py-2">
-            As a software engineer, I specialize in backend technologies. I like coding, learning and using algorithms,
-            data structures, designing architecture - almost everything related to computer science.
+            As a software engineer, I specialize in backend development. I enjoy designing architectures,
+            applying algorithms and data structures, and building reliable systems end to end.
         </p>
     </div>
 
     <div class="py-5 flex items-center mx-auto justify-center space-x-8">
-        <a class="text-primary-600" href="//github.com/theseems" target="_blank">
+        <a class="text-primary-600" href="//github.com/theseems" target="_blank" rel="noreferrer noopener">
             <GithubIcon class="w-5 h-5"/>
         </a>
-        <a class="text-primary-600" href="//t.me/theseems" target="_blank">
+        <a class="text-primary-600" href="//t.me/theseems" target="_blank" rel="noreferrer noopener">
             <TelegramIcon class="w-5 h-5"/>
         </a>
-        <a class="text-primary-600" href="mailto:me@theseems.ru" target="_blank">
+        <a class="text-primary-600" href="mailto:me@theseems.ru" target="_blank" rel="noreferrer noopener">
             <MailIcon class="w-5 h-5"/>
         </a>
     </div>
