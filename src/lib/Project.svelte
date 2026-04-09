@@ -1,31 +1,45 @@
-<script lang="ts">
-    import {A} from "flowbite-svelte";
-    import LinkIcon from "../assets/icons/link.svg";
+<script>
+  import ExternalLink from "./ui/ExternalLink.svelte";
+  import IconPin from "./icons/IconPin.svelte";
 
-    export let title: string;
-    export let url: string | null;
-    export let tags: string[];
+  let { title, url = null, year = null, pinned = false, tags = [], children } = $props();
 </script>
 
-<div class="card">
-    <h5 class="text-2xl font-bold tracking-tight text-black dark:text-white">
-        {#if url != null}
-            <A href={url} aClass="inline-flex items-center font-medium">
-                {title}
-                <LinkIcon class="p-0.5 m-0.5 h-5 w-5"/>
-            </A>
-        {:else }
-            {title}
-        {/if}
-    </h5>
-    <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
-        <slot/>
-    </p>
-    <div class="mt-3 flex space-x-3">
-        {#each tags as tag}
-            <div class="dark:text-primary-300 border-gray-200 dark:border-gray-700 divide-gray-200 dark:divide-gray-700 font-medium inline-flex items-center justify-center px-2.5 py-0.5 text-xs bg-primary-100 text-primary-800 dark:bg-primary-900 rounded">
-                {tag}
-            </div>
-        {/each}
+<article
+  class="flex h-full flex-col rounded-[var(--radius-card)] border border-zinc-200/80 bg-white/55 p-7 shadow-[var(--shadow-soft)] backdrop-blur-md transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-zinc-300/90 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/35 dark:shadow-[var(--shadow-soft-dark)] dark:hover:border-zinc-700/90 sm:p-8"
+>
+  <h3
+    class="m-0 flex w-full flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xl font-semibold leading-snug tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-50"
+  >
+    {#if url}
+      <ExternalLink href={url} variant="card" class="min-w-0 flex-1 leading-snug">{title}</ExternalLink>
+    {:else}
+      <span class="min-w-0 flex-1 leading-snug">{title}</span>
+    {/if}
+    {#if year != null}
+      <span
+        class="shrink-0 whitespace-nowrap text-sm font-normal leading-none tracking-wide text-zinc-400 dark:text-zinc-500"
+      >
+        {#if pinned}<IconPin
+            class="mr-1 inline h-[0.82em] w-[0.82em] align-[-0.1em] opacity-60"
+          />{/if}<span class="tabular-nums lining-nums">{year}</span>
+      </span>
+    {/if}
+  </h3>
+
+  <div class="mt-4 flex-1 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+    {@render children?.()}
+  </div>
+
+  {#if tags.length}
+    <div class="mt-6 flex flex-wrap gap-2">
+      {#each tags as tag (tag)}
+        <span
+          class="rounded-full border border-sky-500/15 bg-sky-500/10 px-3 py-1 text-sm font-medium text-sky-800 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-200"
+        >
+          {tag}
+        </span>
+      {/each}
     </div>
-</div>
+  {/if}
+</article>

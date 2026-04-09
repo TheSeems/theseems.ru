@@ -1,0 +1,76 @@
+[
+  {
+    "pinned": true,
+    "year": 2025,
+    "title": "FLYT",
+    "url": "https://github.com/ytsaurus/ytsaurus-flyt",
+    "tags": ["Python", "Java", "Apache Flink"],
+    "description": "Key contributor to FLYT (Flink over YTsaurus); built the FLYT Python launcher from scratch (CLI, profiles, SquashFS layers, jobshell, CI) and the data-metrics module for timestamp-based sink metrics."
+  },
+  {
+    "pinned": true,
+    "year": 2025,
+    "title": "Wili",
+    "url": "https://github.com/theseems/Wili",
+    "tags": ["Svelte", "Go"],
+    "description": "Full-stack wishlist app with sharing, Telegram Mini App integration, and Yandex ID auth. SvelteKit + TypeScript frontend, Go microservices backend. Deployed to Yandex Cloud via GitHub Actions."
+  },
+  {
+    "pinned": true,
+    "year": 2023,
+    "title": "PacketPray",
+    "url": "https://github.com/theseems/PacketPray",
+    "tags": ["Java", "Minecraft mod"],
+    "description": "Minecraft mod that mitigates crash scenarios related to network packets; 2.5M+ downloads on CurseForge."
+  },
+  {
+    "pinned": true,
+    "year": 2021,
+    "title": "ClinQ",
+    "url": "https://github.com/theseems/clinq",
+    "tags": ["Java"],
+    "description": "LINQ-inspired validation library providing fluent method chains, mappings, dependency checks, and reusable validators."
+  },
+  {
+    "year": 2021,
+    "title": "Droply",
+    "url": "https://github.com/beydex/droply-backend",
+    "tags": ["Kotlin", "Ktor", "Spring"],
+    "description": "A minimalistic file transfer app using P2P and centralized flows. I focused on the backend (made a cross-fusion between Spring and Ktor frameworks for websockets)."
+  },
+  {
+    "year": 2020,
+    "title": "TomShelBot",
+    "url": "https://github.com/tomshelbybot",
+    "tags": ["Java", "Telegram API"],
+    "description": "Telegram Java SDK wrapper: handlers, modularity (plugin jars), storage, commands, polls, and more."
+  },
+  {
+    "year": 2020,
+    "title": "TReports",
+    "url": "https://github.com/theseems/treports",
+    "tags": ["Python", "Django"],
+    "description": "A lightweight bug‑tracking tool used as a free alternative to collect tester feedback."
+  },
+  {
+    "year": 2020,
+    "title": "GenericTensor",
+    "url": "https://github.com/asc-community/GenericTensor",
+    "tags": ["C#", "Math"],
+    "description": "Matrix/tensor calculus — implemented LU and PLU decompositions."
+  },
+  {
+    "year": 2019,
+    "title": "AngouriMath",
+    "url": "https://github.com/asc-community/AngouriMath",
+    "tags": ["C#", "Math"],
+    "description": "Symbolic algebra library — I added a discrete math module and smaller improvements."
+  },
+  {
+    "year": 2019,
+    "title": "MxEngine",
+    "url": "https://github.com/asc-community/MxEngine",
+    "tags": ["C++", "CG"],
+    "description": "A-from-scratch 3D engine — fixed texture tooling bugs."
+  }
+]

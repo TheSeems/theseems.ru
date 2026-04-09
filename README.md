@@ -1,2 +1,9 @@
 # Sources for [my web page](https://theseems.ru)
-Simple personal site made with Svelte and Tailwind & Flowbite 
+
+Personal site: **Svelte 5**, **Vite 6**, **Tailwind CSS 4** via **`@tailwindcss/vite`**, custom minimal UI.
+
+## Scripts
+
+- `npm run dev` — dev server
+- `npm run build` — production build
+- `npm run preview` — preview production build
