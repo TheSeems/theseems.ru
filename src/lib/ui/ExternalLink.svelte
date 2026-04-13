@@ -7,6 +7,7 @@
     variant = "default",
     class: className = "",
     children,
+    ...rest
   } = $props();
 
   const isCard = $derived(variant === "card");
@@ -22,10 +23,11 @@
 </script>
 
 <a
-  class="group {isCard
-    ? 'text-inherit no-underline decoration-transparent transition-colors hover:text-zinc-950 dark:hover:text-zinc-100'
-    : 'font-medium text-sky-600 underline decoration-sky-600/30 decoration-1 underline-offset-[0.22em] transition-colors hover:text-sky-700 hover:decoration-sky-600/60 dark:text-sky-400 dark:decoration-sky-400/35 dark:hover:text-sky-300'} {className}"
   {href}
   target="_blank"
   rel="noreferrer noopener"
+  {...rest}
+  class="group {isCard
+    ? 'text-inherit no-underline decoration-transparent transition-colors hover:text-zinc-950 dark:hover:text-zinc-100'
+    : 'font-medium text-sky-600 underline decoration-sky-600/30 decoration-1 underline-offset-[0.22em] transition-colors hover:text-sky-700 hover:decoration-sky-600/60 dark:text-sky-400 dark:decoration-sky-400/35 dark:hover:text-sky-300'} {className}"
 >{@render children?.()}<IconLink class={linkIconClass} aria-hidden="true" /></a>

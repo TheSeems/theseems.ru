@@ -2,6 +2,7 @@
   import Section from "../lib/ui/Section.svelte";
   import Container from "../lib/ui/Container.svelte";
   import SocialLinks from "../lib/SocialLinks.svelte";
+  import { trackEvent } from "../lib/analytics.js";
 
   const email = "me@theseems.ru";
   let copied = $state(false);
@@ -9,6 +10,7 @@
 
   function copyEmail() {
     navigator.clipboard.writeText(email).then(() => {
+      trackEvent("email_copy", { placement: "contact" });
       copied = true;
       clearTimeout(timeout);
       timeout = setTimeout(() => (copied = false), 2000);
@@ -53,6 +55,6 @@
         </span>
       </button>
     </div>
-    <SocialLinks class="mt-10" />
+    <SocialLinks class="mt-10" placement="contact" />
   </Container>
 </Section>

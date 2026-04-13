@@ -2,6 +2,10 @@
   import { onMount } from "svelte";
   import { activeSectionId } from "./activeSection.svelte.js";
   import { sectionIds } from "./sections.js";
+  import { trackEvent } from "./analytics.js";
+
+  /** @type {Set<string>} */
+  const viewedSections = new Set();
 
   function getHeaderOffset() {
     const el = document.querySelector("header");
@@ -30,6 +34,10 @@
       }
     }
     if (activeSectionId.value !== currentId) activeSectionId.value = currentId;
+    if (!viewedSections.has(currentId)) {
+      viewedSections.add(currentId);
+      trackEvent("section_view", { section: currentId });
+    }
   }
 
   onMount(() => {

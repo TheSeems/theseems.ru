@@ -3,42 +3,58 @@
   import IconLinkedin from "./icons/IconLinkedin.svelte";
   import IconTelegram from "./icons/IconTelegram.svelte";
   import IconMail from "./icons/IconMail.svelte";
+  import { trackEvent } from "./analytics.js";
 
-  let { class: className = "" } = $props();
+  let { class: className = "", placement = "unknown" } = $props();
+
+  const linkClass =
+    "flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-700 shadow-sm backdrop-blur transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white";
+
+  function socialClick(platform) {
+    trackEvent("social_click", { platform, placement });
+  }
 </script>
 
 <nav class="{className} flex items-center justify-center gap-4" aria-label="Social links">
   <a
-    class="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-700 shadow-sm backdrop-blur transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white"
+    class={linkClass}
     href="https://github.com/theseems"
     target="_blank"
     rel="noreferrer noopener"
     aria-label="GitHub"
+    data-umami-event="social_click"
+    onclick={() => socialClick("github")}
   >
     <IconGithub class="h-6 w-6" aria-hidden="true" />
   </a>
   <a
-    class="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-700 shadow-sm backdrop-blur transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white"
+    class={linkClass}
     href="https://www.linkedin.com/in/theseems"
     target="_blank"
     rel="noreferrer noopener"
     aria-label="LinkedIn"
+    data-umami-event="social_click"
+    onclick={() => socialClick("linkedin")}
   >
     <IconLinkedin class="h-6 w-6" aria-hidden="true" />
   </a>
   <a
-    class="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-700 shadow-sm backdrop-blur transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white"
+    class={linkClass}
     href="https://t.me/theseems"
     target="_blank"
     rel="noreferrer noopener"
     aria-label="Telegram"
+    data-umami-event="social_click"
+    onclick={() => socialClick("telegram")}
   >
     <IconTelegram class="h-6 w-6" aria-hidden="true" />
   </a>
   <a
-    class="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-700 shadow-sm backdrop-blur transition hover:border-zinc-300 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:text-white"
+    class={linkClass}
     href="mailto:me@theseems.ru"
     aria-label="Email"
+    data-umami-event="social_click"
+    onclick={() => socialClick("email")}
   >
     <IconMail class="h-6 w-6" aria-hidden="true" />
   </a>

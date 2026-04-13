@@ -2,6 +2,7 @@
   import IconMoon from "./icons/IconMoon.svelte";
   import IconSun from "./icons/IconSun.svelte";
   import { toggleTheme, theme } from "./theme.svelte.js";
+  import { trackEvent } from "./analytics.js";
 
   let { class: className = "" } = $props();
 
@@ -12,7 +13,10 @@
 <button
   type="button"
   class="{base} {className}"
-  onclick={() => toggleTheme()}
+  onclick={() => {
+    toggleTheme();
+    trackEvent("theme_toggle", { to: theme.value });
+  }}
   aria-label={theme.value === "dark" ? "Switch to light theme" : "Switch to dark theme"}
 >
   {#if theme.value === "dark"}

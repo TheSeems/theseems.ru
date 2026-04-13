@@ -1,6 +1,7 @@
 <script>
   import ExternalLink from "./ui/ExternalLink.svelte";
   import IconPin from "./icons/IconPin.svelte";
+  import { trackEvent } from "./analytics.js";
 
   let { title, url = null, year = null, pinned = false, tags = [], children } = $props();
 </script>
@@ -12,7 +13,13 @@
     class="m-0 flex w-full flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xl font-semibold leading-snug tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-50"
   >
     {#if url}
-      <ExternalLink href={url} variant="card" class="min-w-0 flex-1 leading-snug">{title}</ExternalLink>
+      <ExternalLink
+        href={url}
+        variant="card"
+        class="min-w-0 flex-1 leading-snug"
+        data-umami-event="project_click"
+        onclick={() => trackEvent("project_click", { title })}
+      >{title}</ExternalLink>
     {:else}
       <span class="min-w-0 flex-1 leading-snug">{title}</span>
     {/if}

@@ -6,6 +6,7 @@
   import Button from "../lib/ui/Button.svelte";
   import IconCv from "../lib/icons/IconCv.svelte";
   import mePhoto from "../assets/me.png";
+  import { trackEvent } from "../lib/analytics.js";
 </script>
 
 <Section id="home" class="!pt-1 sm:!pt-6 md:!pt-16">
@@ -55,11 +56,12 @@
             target="_blank"
             rel="noreferrer"
             class="h-12 px-6 text-base"
+            onclick={() => trackEvent("cv_click", { placement: "hero" })}
           >
             View CV
             <IconCv class="h-4 w-4" aria-hidden="true" />
           </Button>
-          <SocialLinks />
+          <SocialLinks placement="hero" />
         </div>
       </div>
     </div>

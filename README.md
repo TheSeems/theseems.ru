@@ -7,3 +7,7 @@ Personal site: **Svelte 5**, **Vite 6**, **Tailwind CSS 4** via **`@tailwindcss/
 - `npm run dev` — dev server
 - `npm run build` — production build
 - `npm run preview` — preview production build
+
+## Analytics (optional)
+
+Production builds can load [Umami](https://umami.is/) when `VITE_UMAMI_URL` and `VITE_UMAMI_WEBSITE_ID` are set (see `.env.example`). Omit them to ship without tracking.

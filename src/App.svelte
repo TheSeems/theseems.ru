@@ -4,6 +4,7 @@
   import Home from "./page/Home.svelte";
   import Projects from "./page/Projects.svelte";
   import Contact from "./page/Contact.svelte";
+  import Footer from "./lib/Footer.svelte";
 </script>
 
 <div class="relative min-h-dvh">
@@ -23,9 +24,11 @@
 
   <Navbar />
 
-  <main id="main-content" class="pb-20 pt-28 sm:pt-32">
+  <main id="main-content" class="pb-4 pt-28 sm:pb-6 sm:pt-32">
     <Home />
     <Projects />
     <Contact />
   </main>
+
+  <Footer />
 </div>

@@ -6,12 +6,26 @@
   import IconCv from "./icons/IconCv.svelte";
   import { activeSectionId } from "./activeSection.svelte.js";
   import { sections } from "./sections.js";
+  import { trackEvent } from "./analytics.js";
 
   let menuOpen = $state(false);
   let pastHero = $derived(activeSectionId.value !== "home");
 
   function closeMenu() {
     menuOpen = false;
+  }
+
+  function trackBrandNav() {
+    trackEvent("nav_click", { section: "home" });
+  }
+
+  function trackMobileNav(sectionId) {
+    trackEvent("nav_click", { section: sectionId });
+    closeMenu();
+  }
+
+  function trackCv(placement) {
+    trackEvent("cv_click", { placement });
   }
 
   function onKeydown(e) {
@@ -28,7 +42,10 @@
     <a
       href="#home"
       class="group flex min-w-0 shrink items-baseline gap-2 no-underline"
-      onclick={closeMenu}
+      onclick={() => {
+        trackBrandNav();
+        closeMenu();
+      }}
     >
       <span class="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
         >Alexey Akhundov</span
@@ -51,6 +68,7 @@
             variant="nav"
             target="_blank"
             rel="noreferrer"
+            onclick={() => trackCv("navbar_desktop")}
           >
             CV
             <IconCv class="h-4 w-4" aria-hidden="true" />
@@ -65,6 +83,7 @@
         target="_blank"
         rel="noreferrer"
         class="inline-flex h-10 items-center gap-1.5 rounded-full border border-zinc-200/80 bg-zinc-900 px-4 text-sm font-semibold text-white no-underline shadow-sm dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-950"
+        onclick={() => trackCv("navbar_mobile")}
       >
         CV
         <IconCv class="h-3.5 w-3.5" aria-hidden="true" />
@@ -120,7 +139,7 @@
             s.id
               ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950'
               : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-900'}"
-            onclick={closeMenu}>{s.label}</a
+            onclick={() => trackMobileNav(s.id)}>{s.label}</a
           >
         {/each}
       </div>
