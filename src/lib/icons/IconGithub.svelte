@@ -2,9 +2,8 @@
   let { class: className = "", ...rest } = $props();
 </script>
 
+<!-- Sizing via class only (e.g. h-6 w-6); avoid fixed width/height for baseline alignment. -->
 <svg
-  width="24"
-  height="24"
   class={className}
   xmlns="http://www.w3.org/2000/svg"
   fill="currentColor"

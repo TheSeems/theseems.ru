@@ -6,7 +6,7 @@
   import IconCv from "./icons/IconCv.svelte";
   import { activeSectionId } from "./activeSection.svelte.js";
   import { sections } from "./sections.js";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   let menuOpen = $state(false);
   let pastHero = $derived(activeSectionId.value !== "home");
@@ -64,7 +64,7 @@
       >
         <div class="overflow-hidden">
           <Button
-            href="https://theseems.ru/cv"
+            href="https://theseems.io/cv"
             variant="nav"
             target="_blank"
             rel="noreferrer"
@@ -79,7 +79,7 @@
 
     <div class="flex shrink-0 items-center gap-2 md:hidden">
       <a
-        href="https://theseems.ru/cv"
+        href="https://theseems.io/cv"
         target="_blank"
         rel="noreferrer"
         class="inline-flex h-10 items-center gap-1.5 rounded-full border border-zinc-200/80 bg-zinc-900 px-4 text-sm font-semibold text-white no-underline shadow-sm dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-950"
@@ -91,7 +91,7 @@
       <ThemeToggle />
       <button
         type="button"
-        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-50"
+        class="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-zinc-200/80 bg-white/70 text-zinc-900 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-50"
         aria-expanded={menuOpen}
         aria-controls="mobile-menu"
         onclick={() => (menuOpen = !menuOpen)}

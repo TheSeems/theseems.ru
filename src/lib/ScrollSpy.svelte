@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { activeSectionId } from "./activeSection.svelte.js";
   import { sectionIds } from "./sections.js";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   /** @type {Set<string>} */
   const viewedSections = new Set();

@@ -2,12 +2,12 @@
   import IconMoon from "./icons/IconMoon.svelte";
   import IconSun from "./icons/IconSun.svelte";
   import { toggleTheme, theme } from "./theme.svelte.js";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   let { class: className = "" } = $props();
 
   const base =
-    "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-zinc-200/80 bg-white/60 text-zinc-700 shadow-sm transition hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-200 dark:hover:bg-zinc-900";
+    "inline-flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-zinc-200/80 bg-white/60 text-zinc-700 shadow-sm transition hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/50 dark:text-zinc-200 dark:hover:bg-zinc-900";
 </script>
 
 <button

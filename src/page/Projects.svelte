@@ -6,6 +6,17 @@
 
   /** Year = GitHub repo creation of the linked project. */
 
+  /** Bundled + hashed at build time; keys are file names as written in projects.json. */
+  const iconUrls = import.meta.glob("../assets/projects/*.png", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  });
+
+  /** @param {string | undefined} name */
+  const iconUrl = (name) =>
+    name ? (iconUrls[`../assets/projects/${name}`] ?? null) : null;
+
   /** Pinned: order as listed. Rest: newest year first, then title. */
   const sortedProjects = $derived.by(() => {
     const indexed = projects.map((p, i) => ({ p, i }));
@@ -43,6 +54,8 @@
           tags={p.tags}
           year={p.year}
           pinned={p.pinned === true}
+          icon={iconUrl(p.icon)}
+          iconMono={p.iconMono === true}
         >
           {p.description}
         </Project>

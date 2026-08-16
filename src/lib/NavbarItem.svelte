@@ -1,6 +1,6 @@
 <script>
   import { activeSectionId } from "./activeSection.svelte.js";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   /**
    * @typedef {Object} NavbarItemProps

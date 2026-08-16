@@ -1,7 +1,7 @@
 import { mount } from "svelte";
 import "./app.css";
-import { initAnalytics } from "./lib/analytics.js";
+import { initMetrics } from "./lib/metrics.js";
 import App from "./App.svelte";
 
 mount(App, { target: document.getElementById("app") });
-initAnalytics();
+initMetrics();

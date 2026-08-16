@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import ExternalLink from "./ui/ExternalLink.svelte";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   let open = $state(false);
   let panel = $state(null);
@@ -44,7 +44,7 @@
       <button
         type="button"
         onclick={close}
-        class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-600 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-300"
+        class="absolute right-4 top-4 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-600 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-300"
         aria-label="Close"
       >
         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -61,24 +61,21 @@
         </h2>
 
         <p class="mt-6 text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
-          This website uses
-          <strong class="font-medium text-zinc-900 dark:text-zinc-50">self-hosted</strong>
-          analytics (<ExternalLink href="https://umami.is/">Umami</ExternalLink>)
+          This website uses self-hosted analytics system <ExternalLink href="https://umami.is/">Umami</ExternalLink>
           to collect anonymous usage data such as page views, button clicks, and referrers.
           No cookies. No cross-site tracking. No advertising profiling or third-party marketing trackers.
         </p>
 
         <p class="mt-4 text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
-          Analytics data is processed on infrastructure in
-          <strong class="font-medium text-zinc-900 dark:text-zinc-50">Russia</strong>,
+          Analytics data is processed on infrastructure in Russia,
           operated by the site owner. Questions? Reach out at
           <a
             class="font-mono font-medium text-sky-600 underline decoration-sky-600/30 underline-offset-[0.22em] transition-colors hover:text-sky-700 hover:decoration-sky-600/60 dark:text-sky-400 dark:decoration-sky-400/35 dark:hover:text-sky-300"
-            href="mailto:me@theseems.ru">me@theseems.ru</a
+            href="mailto:me@theseems.io">me@theseems.io</a
           >.
         </p>
 
-        <p class="mt-5 text-xs leading-relaxed text-zinc-500 dark:text-zinc-500">
+        <p class="mt-5 text-pretty leading-relaxed text-zinc-500 dark:text-zinc-500">
           For transparency only, not legal advice.
         </p>
       </article>

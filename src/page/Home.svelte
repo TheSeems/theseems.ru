@@ -2,25 +2,26 @@
   import Section from "../lib/ui/Section.svelte";
   import Container from "../lib/ui/Container.svelte";
   import ExternalLink from "../lib/ui/ExternalLink.svelte";
-  import SocialLinks from "../lib/SocialLinks.svelte";
   import Button from "../lib/ui/Button.svelte";
   import IconCv from "../lib/icons/IconCv.svelte";
   import mePhoto from "../assets/me.png";
-  import { trackEvent } from "../lib/analytics.js";
+  import SocialLinks from "../lib/SocialLinks.svelte";
+  import { trackEvent } from "../lib/metrics.js";
 </script>
 
 <Section id="home" class="!pt-1 sm:!pt-6 md:!pt-16">
   <Container>
     <div
-      class="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-14"
+      class="flex w-full flex-col items-center gap-8 md:flex-row md:items-center md:gap-14"
     >
-      <div class="w-full max-w-xs shrink-0 md:w-64 md:max-w-none lg:w-72">
+      <div class="w-full max-w-56 shrink-0 md:w-64 md:max-w-none lg:w-72">
+        <!-- Fixed ratio: the portrait's shape shouldn't depend on how long the copy is. -->
         <img
           src={mePhoto}
           alt="Portrait of Alexey Akhundov"
           width="280"
-          height="400"
-          class="h-64 w-full rounded-2xl object-cover object-[center_10%] shadow-[var(--shadow-soft)] ring-1 ring-zinc-200/80 dark:shadow-[var(--shadow-soft-dark)] dark:ring-zinc-700/80 sm:h-72 md:h-full"
+          height="350"
+          class="aspect-4/5 w-full rounded-2xl object-cover object-[center_10%] shadow-[var(--shadow-soft)] ring-1 ring-zinc-200/80 dark:shadow-[var(--shadow-soft-dark)] dark:ring-zinc-700/80"
         />
       </div>
 
@@ -30,28 +31,33 @@
         >
           Alexey Akhundov
         </h1>
-        <p class="mt-2 text-xl font-medium text-zinc-400 sm:text-2xl dark:text-zinc-600">
-          TheSeems
+        <!-- Handle + role read as one line: the mono voice marks it as identity, not prose. -->
+        <p
+          class="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-lg font-medium leading-snug text-zinc-600 sm:text-xl md:justify-start dark:text-zinc-400"
+        >
+          <span class="font-mono text-base font-normal tracking-tight text-zinc-400 sm:text-lg dark:text-zinc-500"
+            >@theseems</span
+          >
+          <span
+            class="hidden h-4 w-px shrink-0 bg-zinc-300 sm:inline-block dark:bg-zinc-700"
+            aria-hidden="true"
+          ></span>
+          <span class="text-balance">Senior Software Engineer · Data Platform · Backend</span>
         </p>
         <p
-          class="mt-4 text-pretty text-lg font-medium leading-relaxed text-zinc-600 sm:text-xl md:text-2xl dark:text-zinc-400"
+          class="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-zinc-700 sm:text-lg md:mx-0 dark:text-zinc-300"
         >
-          Senior Software Engineer · Data Platform · Backend
-        </p>
-        <p class="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-zinc-700 sm:text-lg md:mx-0 md:mt-6 md:max-w-none dark:text-zinc-300">
           I build data platform tooling at
           <ExternalLink href="https://yandex.com/company/about">Yandex</ExternalLink> and study
           Artificial Intelligence at
-          <ExternalLink href="https://cs.hse.ru/en">HSE</ExternalLink>.
-          Interested in distributed systems, developer tools, and shipping things that work reliably.
+          <!-- Keeps the sentence-ending period from wrapping away from the link's icon. -->
+          <span class="whitespace-nowrap"
+            ><ExternalLink href="https://cs.hse.ru/en">HSE</ExternalLink>.</span
+          > Outside work: open source, homelabs, and distributed systems.
         </p>
-        <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-zinc-700 sm:text-lg md:mx-0 md:mt-5 md:max-w-none dark:text-zinc-300">
-          I contribute to open-source and tinker with homelabbing and smart home setups in my spare time.
-          I like building useful things and figuring out how stuff works under the hood.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-8 md:justify-start md:gap-4">
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-y-4 md:justify-start">
           <Button
-            href="https://theseems.ru/cv"
+            href="https://theseems.io/cv"
             variant="nav"
             target="_blank"
             rel="noreferrer"
@@ -61,7 +67,7 @@
             View CV
             <IconCv class="h-4 w-4" aria-hidden="true" />
           </Button>
-          <SocialLinks placement="hero" />
+          <SocialLinks class="ml-5" placement="hero" />
         </div>
       </div>
     </div>

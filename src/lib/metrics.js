@@ -1,7 +1,15 @@
 let outboundBound = false;
 
+/** Both domains serve this site; theseems.io is canonical (see the canonical tag in index.html). */
+const SITE_HOSTS = ["theseems.io", "theseems.ru"];
+
 function canonicalHost(hostname) {
   return hostname.replace(/^www\./i, "");
+}
+
+function isOwnHost(hostname) {
+  const host = canonicalHost(hostname);
+  return host === canonicalHost(window.location.hostname) || SITE_HOSTS.includes(host);
 }
 
 /**
@@ -12,7 +20,7 @@ function isOutbound(a) {
   try {
     const u = new URL(a.href, window.location.href);
     if (u.protocol === "http:" || u.protocol === "https:") {
-      return canonicalHost(u.hostname) !== canonicalHost(window.location.hostname);
+      return !isOwnHost(u.hostname);
     }
     if (u.protocol === "mailto:" || u.protocol === "tel:" || u.protocol === "sms:") {
       return true;
@@ -27,7 +35,7 @@ function isOutbound(a) {
  * Self-hosted Umami (production only). Set VITE_UMAMI_URL and VITE_UMAMI_WEBSITE_ID at build time.
  * @see https://umami.is/docs
  */
-export function initAnalytics() {
+export function initMetrics() {
   if (!import.meta.env.PROD) return;
 
   const base = import.meta.env.VITE_UMAMI_URL?.replace(/\/$/, "");
@@ -42,7 +50,7 @@ export function initAnalytics() {
   script.defer = true;
   script.src = `${base}/script.js`;
   script.dataset.websiteId = websiteId;
-  script.dataset.domains = "theseems.ru,www.theseems.ru";
+  script.dataset.domains = SITE_HOSTS.flatMap((h) => [h, `www.${h}`]).join(",");
   document.head.appendChild(script);
 }
 

@@ -3,7 +3,7 @@
   import IconLinkedin from "./icons/IconLinkedin.svelte";
   import IconTelegram from "./icons/IconTelegram.svelte";
   import IconMail from "./icons/IconMail.svelte";
-  import { trackEvent } from "./analytics.js";
+  import { trackEvent } from "./metrics.js";
 
   let { class: className = "", placement = "unknown" } = $props();
 
@@ -49,13 +49,15 @@
   >
     <IconTelegram class="h-6 w-6" aria-hidden="true" />
   </a>
-  <a
-    class={linkClass}
-    href="mailto:me@theseems.ru"
-    aria-label="Email"
-    data-umami-event="social_click"
-    onclick={() => socialClick("email")}
-  >
-    <IconMail class="h-6 w-6" aria-hidden="true" />
-  </a>
+  {#if placement === "hero"}
+      <a
+        class={linkClass}
+        href="mailto:me@theseems.io"
+        aria-label="Email"
+        data-umami-event="social_click"
+        onclick={() => socialClick("email")}
+      >
+        <IconMail class="h-6 w-6" aria-hidden="true" />
+      </a>
+  {/if}
 </nav>

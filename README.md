@@ -1,4 +1,4 @@
-# Sources for [my web page](https://theseems.ru)
+# Sources for [my web page](https://theseems.io)
 
 Personal site: **Svelte 5**, **Vite 6**, **Tailwind CSS 4** via **`@tailwindcss/vite`**, custom minimal UI.
 
