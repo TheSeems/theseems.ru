@@ -42,14 +42,14 @@
             class="hidden h-4 w-px shrink-0 bg-zinc-300 sm:inline-block dark:bg-zinc-700"
             aria-hidden="true"
           ></span>
-          <span class="text-balance">Senior Software Engineer · Data Platform · Backend</span>
+          <span class="text-balance">Software Engineer · Data Platform · Backend</span>
         </p>
         <p
           class="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-zinc-700 sm:text-lg md:mx-0 dark:text-zinc-300"
         >
-          I build data platform tooling at
-          <ExternalLink href="https://yandex.com/company/about">Yandex</ExternalLink> and study
-          Artificial Intelligence at
+          I work at
+          <ExternalLink href="https://www.databricks.com/company/about-us">Databricks</ExternalLink>
+          and studied Artificial Intelligence at
           <!-- Keeps the sentence-ending period from wrapping away from the link's icon. -->
           <span class="whitespace-nowrap"
             ><ExternalLink href="https://cs.hse.ru/en">HSE</ExternalLink>.</span
